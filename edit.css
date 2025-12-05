@@ -1,0 +1,209 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap');
+@import url('skin-theme.css');
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,*::before,*::after{box-sizing:border-box}*{margin:0}body{line-height:1.5;-webkit-font-smoothing:antialiased}picture,video,canvas,svg{display:block;max-width:100%}img{max-width:100%;height:auto}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}#root,#__next{isolation:isolate}
+
+/*
+	Tegalog skin by pipi
+	https://pipi.noor.jp/t/
+*/
+:root {
+	--main-font-family: "Noto Sans JP", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Segoe UI", "Meiryo", sans-serif;
+
+	/* コンテンツの最大横幅設定 */
+	--main-width: 800px;
+}
+
+html{
+	font-size: 16px;
+}
+@media screen and (max-width: 599px){
+	html{
+		font-size: 15px;
+	}
+}
+body{
+	background: var(--main-bg-design) !important;
+	color: var(--main-text-color);
+	font-family: var(--main-font-family);
+	font-feature-settings: "palt" 1;
+	font-weight: 400;
+	letter-spacing: 1px;
+	line-height: 1.8;
+	word-break: break-all;
+	margin: 1vw 3vw;
+}
+div#contents{
+	border: none;
+	max-width: var(--main-width);
+	margin: 0 auto;
+	background-color: transparent;
+}
+div#contents div#header{
+	background-color: transparent;
+	border: none;
+}
+div#main{
+	margin: 0 0;
+}
+div#contents div#main form.postform{
+	background-color: var(--accent2);
+	padding: 3.5% 5%;
+}
+
+/* textarea -------------------------------------------- */
+form.postform textarea.tegalogpost{
+	background-color: var(--sub-bg-color);
+	border: none;
+	border-radius: 0;
+	color: var(--main-text-color);
+	font-size: 16px;
+	font-family: 'Noto Sans JP','Hiragino Kaku Gothic ProN', Meiryo,  sans-serif;
+	line-height: 1.8;
+	margin-bottom: 0;
+	resize: vertical;
+	vertical-align: bottom;
+}
+form.postform textarea:focus {
+    outline: none;
+}
+.submitcover {
+    display: block;
+    text-align: right;
+}
+div#contents div#main input.postbutton{
+    background-color: var(--accent);
+    border: none;
+    border-radius: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-right: 0;
+    text-align: center;
+    width: 50%;
+    cursor: pointer;
+}
+input.postbutton:hover{
+	background-color: var(--accent);
+}
+.line-postid .trydelete{
+	color: rgb(var(--main-text-rgb),0.5);
+}
+.line-postid :checked + label + label{
+	color: var(--main-text-rgb);
+}
+
+
+
+/* control inputs -------------------------------------------- */
+span.decoBtns{
+	display: block !important;
+	margin-top: 0;
+}
+input[type="button"],
+input[type="text"]{
+	background-color: var(--main-text-color);
+	border: none;
+	border-radius: 0;
+	color: var(--sub-bg-color);
+	cursor: pointer;
+	font-size: 0.9rem;
+	font-weight: normal;
+	height: 2rem;
+	letter-spacing: 1px;
+	margin: 0 5px 5px 0;
+	padding: 0 0.5rem 0 0.6rem;
+	text-decoration: none;
+}
+input[type="button"]:hover{
+	background-color: var(--main-text-color);
+}
+input[type="file"]{
+	background-color: transparent !important;
+	border: 1px solid var(--main-text-color);
+	border-radius: 0;
+	height: 2rem;
+	margin: 0 5px 5px 0;
+	padding: 0 !important;
+	vertical-align: middle;
+}
+::file-selector-button{
+	background-color: var(--main-text-color);
+	border: none;
+	color: var(--sub-bg-color);
+	cursor: pointer;
+	height: 2rem;
+	margin-right: 0.7em;
+	padding: 0.4em 0.6em;
+	text-box-edge: cap alphabetic;
+	text-box-trim: trim-both;
+	transition: background-color 0.3s ease-in-out;
+}
+select{
+	background-color: var(--sub-bg-color);
+	border: 1px solid var(--main-text-color);
+    color: var(--main-text-color);
+	height: 2rem;
+	vertical-align: top;
+}
+.catChecks{
+	display: inline-block;
+}
+.catChecks label,
+.funcUIs .catChecks{
+	margin-right: 1em;
+}
+.funcUIs .catChecks label{
+	margin-right: 5px;
+}
+.funcUIs label{
+	padding: 0 0 5px 0;
+}
+.funcUIs .catChecks,
+.funcUIs > input:first-child{
+	margin-right: 1em;
+}
+
+
+/* other -------------------------------------------- */
+#header{
+	color: var(--main-text-color);
+}
+h1{
+	margin: 0;
+}
+.workname{
+	font-family: var(--main-font-family);
+}
+.appname a,
+.adminlinks a,
+#copyright a{
+	color: var(--main-text-color);
+	text-decoration: underline;
+}
+#copyright{
+	text-align: center;
+}
+
+
+/* responsive -------------------------------------------- */
+@media (max-width: 599px){
+	body{
+		margin: 1rem 3vw 5rem;
+	}
+	h1{
+		font-size: 1rem;
+	}
+	.adminhome a{
+		font-size: 0.6em;
+	}
+	form.postform{
+		padding: 1rem;
+	}
+}

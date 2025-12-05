@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tegalog>
+	<log><date>2017/12/06 12:36:55</date><id>6</id><user>admin</user><comment>⑥そのほか、詳しい使い方は [てがろぐCGIの配布ページ]https://www.nishishi.com/cgi/tegalog/ 内で説明しています。せっかく自前のサーバにセットアップして使えるCGIなのですから、できるだけ自分好みにカスタマイズしてお使い頂けるよう、[カスタマイズ方法ページ]https://www.nishishi.com/cgi/tegalog/custom/ 等も用意していますのでぜひご参照下さい。この度は、お手軽一言メモCGI「てがろぐ」をセットアップして下さってありがとうございます！ 末永くご愛用頂ければ幸いです。機能面でのご要望もお気軽にお知らせ下さい。以上、初回セットアップの #ご挨拶 でした。(๑╹◡╹๑)ﾉ</comment></log>
+	<log><date>2017/12/06 12:36:26</date><id>5</id><user>admin</user><cat></cat><flag></flag><comment>サンプル</comment></log>
+	<log><date>2017/12/06 12:32:32</date><id>4</id><user>admin</user><cat></cat><flag></flag><comment>サンプル</comment></log>
+	<log><date>2017/11/30 21:29:26</date><id>3</id><user>admin</user><cat></cat><flag></flag><comment>サンプル</comment></log>
+	<log><date>2017/11/30 21:27:30</date><id>2</id><user>admin</user><cat></cat><flag></flag><comment>サンプル</comment></log>
+	<log><date>2025/12/05 23:33:29</date><id>1</id><user>admin</user><cat></cat><flag></flag><comment>テスト投稿です。上手くいけば過去の投稿もこちらにまとめて移行したい。<br />有志の方々が配布してくださっているテンプレートやスキンのお陰で無からサイトを作れました。感謝。インターネットの知見も、これからの社会ではどんどん汚染されていくのだろうか……。</comment></log>
+</tegalog>

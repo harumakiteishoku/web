@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+:root {
+
+	/* 色設定 */
+
+	--os1: #ffeded;
+	--os2: #ffd6d6;
+	--main-text-color: #5E5957;
+	--main-text-rgb: 94, 89, 87;
+	--sub-bg-color: #fff;
+	--sub-bg-color2: #ffffff80;
+	--accent: #fab0ba;
+	--accent2: #fab0ba40;
+	--main-bg-design: var(--os2) linear-gradient(160deg, var(--os1) 20%, var(--os2) 80%) fixed;
+}
+
+/*
+	os1、os2 = 推したちの色を入力してください。Googleで「カラーピッカー」と検索すると色づくりが簡単です。
+
+	main-text-color = メインの文字色です。os1、os2が暗い色なら#fffなど（白系）を、明るい色なら#333など（黒系）がオススメ。
+	main-text-rgb = １つ上の色をRGB値に変換したものを入れます。Googleで「カラーピッカー」と検索してみてください。
+
+	sub-bg-color = main-textが暗い色なら#fffなど（白系）を、明るい色なら#333など（黒系）がオススメ。
+	sub-bg-color2 = １つ上の色の最後に80を足すのがオススメです。透明度のことで、00～FFの範囲を入力できます。
+
+	accent = 推したちの目の色など、アクセントカラーをどうぞ。
+	accent2 = １つ上の色の最後に60を足すのがオススメです。透明度のことで、00～FFの範囲を入力できます。
+
+
+	main-bg-design = ページ全体の背景色です。
+	1. なめらかなグラデーション
+	linear-gradient(160deg, var(--os1) 20%, var(--os2) 80%) fixed;
+	
+	2. パキッとしたツートンカラー
+	linear-gradient(160deg, var(--os1) 49.9%, var(--os2) 50%) fixed;
+	
+	3. 単色カラー
+	#ffffff などのカラーコードを入れると単色にできます。
+*/

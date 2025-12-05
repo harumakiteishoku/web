@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="[[CHARCODE]]">
+	<title>[[FREE:TITLE:MAIN]]</title>
+	<meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+	<meta name="viewport" content="initial-scale=1">
+	<link rel="icon" href="../favicon.ico" sizes="any">
+	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script><!-- Twemoji by https://github.com/jdecked/twemoji -->
+
+	<link rel="stylesheet" href="skin-style.css">
+	<link rel="stylesheet" href="skin-theme.css" id="theme">
+	[[RSS:AUTODISCOVERY:FULL]]
+	[[OGP]]
+</head>
+<body class="[[SITUATION:CLASS]]">
+
+<header>
+	<h1 class="maintitle"><a href="[[HOME:URL]]">[[FREE:TITLE:MAIN]]</a></h1>
+	<small class="subtitle">[[FREE:TITLE:SUB]]</small>
+</header>
+
+<div class="mainwrapper">
+<main>
+	<details class="Login-Required postarea">
+		<summary>投稿フォーム</summary>
+		[[QUICKPOST]]
+		<p class="right_block"><a href="?mode=admin&amp;work=images"><i class="las la-image"></i>画像</a> / <a href="?mode=admin&amp;work=manage&amp;q=$ps%3Ddraft"><i class="las la-file-alt"></i>下書き</a> / <a href="?mode=admin"><i class="las la-cog"></i>管理画面</a></p>
+	</details><!-- 投稿フォーム -->
+
+[[TEGALOG]]<!-- 投稿内容 -->
+
+	<nav class="pagenums">
+		[[NAVI:PAGELIST]]
+		<div class="onelogonly">[[NAVI:NEXT]][[NAVI:PREV]]</div>
+	</nav><!-- ページ番号/新しい投稿/古い投稿へのリンク -->
+
+</main>
+<aside>
+	<section class="sec1">
+		[[FREESPACE]]
+
+		<h2>categories</h2>
+		<div class="category">[[CATEGORY:TREE]]</div>
+
+		<h2>tags</h2>
+		<div class="hashtag">[[HASHTAG:LIST]]</div>
+	</section>
+	<section class="sec2">
+		<h2>search</h2>
+		<div class="search">[[SEARCHBOX]]</div>
+
+		<h2>archives</h2>
+		[[DATEBOX:PULL]]
+
+		[[CALENDAR]]
+		<div class="calbtm">
+			<div><a href="[[MOVEMONTH:-1:URL]]"><i class="las la-caret-left"></i>prev</a></div>
+			<div><a href="[[MOVEMONTH:1:URL]]">next<i class="las la-caret-right"></i></a></div>
+		</div>
+	</section>
+	<section class="sec3">
+		<h2>recent images</h2>
+		<div class="imagelist">
+			[[IMAGELIST]]
+		</div>
+		<p class="right_block"><a href="[[GALLERY:URL]]">[[GALLERY:NAME]]<i class="las la-caret-right"></i></a></p>
+	</section>
+</aside>
+</div><!--mainwrapper-->
+
+
+<footer>
+	<!-- てがろぐ Version: -->[[VERSION:NEWTAB]].<!-- この記述は必須です --> / 
+	<a href="https://pipi.noor.jp/t/">skin by pipi</a> / <a href="?mode=admin"><i class="las la-cog la-lg"></i></a><br>
+	[[FREE:HOMELINK]]
+</footer>
+
+<!-- Lightbox and option -->
+[[JS:LIGHTBOX:JQ]]
+<script>
+lightbox.option({
+	'fadeDuration': 300,
+	'imageFadeDuration': 300,
+	'resizeDuration': 0
+})
+</script>
+
+<!-- Twemoji by https://github.com/jdecked/twemoji -->
+<script>
+    twemoji.parse(document.body);
+</script>
+
+</body>
+</html>

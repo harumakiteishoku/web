@@ -1,0 +1,806 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap');
+
+/*
+	Josh's Custom CSS Reset
+	https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,*::before,*::after{box-sizing:border-box}*{margin:0}body{line-height:1.5;-webkit-font-smoothing:antialiased}picture,video,canvas,svg{display:block;max-width:100%}img{max-width:100%;height:auto}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}#root,#__next{isolation:isolate}
+
+/*
+	Tegalog skin by pipi | Ver.1.0
+	https://pipi.noor.jp/t/
+*/
+:root {
+	--main-font-family: "Noto Sans JP", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Segoe UI", "Meiryo", sans-serif;
+
+	/* 色設定 */
+	--main-text-color: #59514e;
+	--main-text-rgb:89,81,78;
+	--sub-bg-color: #FEFAEE;
+	--sub-bg-color2: #FEFAEE80;
+	--accent: #1C93A3;
+	--accent2: #1C93A360;
+	--main-bg-design: #E9DFD3 url(imgforskin/bg.jpg) scroll;
+
+	/* コンテンツの最大横幅設定 */
+	--main-width: 1000px;
+	/* 1カラム時は600～800pxくらい、2カラム時は900px以上がオススメです。 */
+
+	/* 大きな縦長画像の表示サイズ */
+	--largeimg-size: 600px;
+	/* 投稿内の縦長画像の最大サイズを設定できます。不要な場合は数値と単位を削除してください。 */
+	
+	/* 小さな画像のサムネサイズ */
+	--miniimg-size: 200px;
+	/* 投稿内の「NSFW画像」と「smallタグで囲んだ画像」のサムネサイズを設定できます。100px以上推奨。 */
+}
+html{
+	font-size: 16px;
+}
+@media screen and (max-width: 599px){
+	html{
+		font-size: 15px;
+	}
+}
+body{
+	background: var(--main-bg-design);
+	color: var(--main-text-color);
+	font-family: var(--main-font-family);
+	font-feature-settings: "palt" 1;
+	font-weight: 400;
+	letter-spacing: 1px;
+	line-height: 1.8;
+	word-break: break-all;
+	margin: 0 3vw;
+}
+a{
+	color: var(--main-text-color);
+	text-decoration: none;
+	font-weight: bold;
+}
+ul{
+	padding: 0 0 0 0;
+	list-style-type: none;
+}
+img{
+	object-position: top;
+	vertical-align: bottom;
+}
+textarea{
+	font-size: 16px;	/* iOS zoom対策 */
+}
+
+
+/* header -------------------------------------------- */
+header{
+	padding: max(5vw,3rem) 0 3rem;
+	text-align: center;
+}
+h1{
+	font-size: 1.5rem;
+	line-height: 1.3;
+}
+div.mainwrapper{
+	margin: 0 auto;
+	max-width: var(--main-width);
+}
+
+
+/* ★1カラムver. --------------------------------------------
+
+aside{
+	max-width: var(--article-width);
+	margin: 0 auto 3rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 1fr auto;
+	gap: 2rem 3rem;
+}
+
+
+/* ★2カラムver. -------------------------------------------- */
+div.mainwrapper{
+	display: flex;
+	gap: 3rem;
+}
+@media screen and (max-width: 850px){
+	div.mainwrapper{
+		display: block;
+	}
+}
+aside{
+	flex-basis: 25%;
+	min-width: 250px;
+	margin: 0 auto 3rem;
+}
+@media screen and (min-width:600px) and ( max-width:850px){
+	aside{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr auto;
+		gap: 2rem 3rem;
+	}
+}
+/* 	2カラムにしていても横幅850px以下のブラウザで見た時は自動的に1カラムになります。*/
+
+
+/* main-layout -------------------------------------------- */
+main{
+	flex-basis: 75%;
+	margin: 0 auto 5rem;
+}
+article{
+	margin-bottom: 3rem;
+}
+.comment{
+	background-color: var(--sub-bg-color2);
+	padding: 3.5% 5%;
+	position: relative;
+}
+@media (max-width: 599px){
+	.comment{
+		padding: 3.5% 5% 5%;
+	}	
+}
+.nodata,
+.nolist{
+	background-color: var(--sub-bg-color2);
+	padding: 3rem 5%;
+}
+.oneloginfo{
+	font-size: 0.8rem;
+	padding: 0.4em 0 0;
+	text-align: right;
+}
+.postdate{
+	padding-left: 1rem;
+	display:inline-block;
+}
+article.logstatus-lock .comment:before{
+	content: "\f023";
+	font-family: 'Line Awesome Free';
+	font-weight: 900;
+	font-size: 1.3em;
+	position: absolute;
+	right: calc(50% - 0.6em);
+	top: -20px;
+}
+article.logstatus-fixed .comment:before{
+	content: "\f08d";
+	font-family: 'Line Awesome Free';
+	font-weight: 900;
+	font-size: 1.3em;
+	position: absolute;
+	right: calc(50% - 0.6em);
+	top: -20px;
+}
+.dateseparator{
+	display: none;
+}
+nav.pagenums{
+	text-align: center;
+	font-weight: bold;
+}
+nav.pagenums a{
+	background-color: rgb(var(--main-text-rgb), 0.2);
+	color: var(--main-text-color);
+	display: inline-block;
+	letter-spacing: 0;
+	padding: 0 0.3em 0.2em;
+	margin-bottom: 5px;
+	transition: all 0.3s ease-in-out;
+	min-width: 2em;
+}
+nav.pagenums a:hover{
+	background-color: rgb(var(--main-text-rgb), 0.4);
+}
+nav.pagenums .pagenumhere{
+	background-color: var(--accent);
+	color: var(--sub-bg-color);
+}
+.onelogonly{
+	display: none;
+}
+body.onelog .onelogonly{
+	display: block;
+}
+body.onelog nav.pagenums .onelogonly a{
+	padding: 0 1em 0.2em;
+	margin-right: 1em;
+}
+body.onelog nav.pagenums .onelogonly a:last-child{
+	margin-right: 0;
+}
+
+
+/* a -------------------------------------------- */
+.comment a:not(.cardlink){
+	text-decoration: underline;
+}
+.comment a:hover,
+aside .link a:hover{
+	text-decoration: none;
+}
+.comment a.uc-btn{
+	background-color: var(--accent);
+	color: var(--sub-bg-color);
+	display: inline-block;
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin: 0 0 5px 0;
+	padding: 0.1em 0.6em 0.2em;
+	text-decoration: none;
+	transition: opacity 0.3s ease-in-out;
+}
+.comment a[target~="_blank"]:before{
+	content: " \f35d";
+	font-family: 'Line Awesome Free';
+	font-weight: 900;
+}
+.comment a.uc-btn:hover{
+	opacity: 0.5;
+}
+.category a,
+a.readmorebutton{
+	background-color: var(--main-text-color);
+	color: var(--sub-bg-color);
+	display: inline-block;
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin: 0 0 5px 0;
+	padding: 0.1em 0.6em 0.2em;
+	text-decoration: none;
+	transition: background-color 0.3s ease-in-out;
+}
+.category a:hover,
+a.readmorebutton:hover{
+	background-color: var(--accent);
+}
+nav ul li,
+.category ul li{
+	display: inline-block;
+	margin-right: 5px;
+}
+nav ul li:last-child,
+.category ul li:last-child{
+	margin-right: 0;
+}
+.taglink + .num,
+.catlink + .num,
+.datelistlink + .num{
+	display: none;
+}
+
+
+/* parts -------------------------------------------- */
+em{
+	font-style: normal;
+    font-weight: bold;
+    margin: 0 0.2em;
+    padding: 0 0.2em;
+    background-image: linear-gradient(rgba(0, 0, 0, 0) 50%, var(--accent2) 50%);
+}
+.decorationM{
+	padding: 0 0.2em;
+}
+
+small.decorationS{
+	font-size: 0.85rem;
+}
+small.decorationT{
+	font-size: 0.7rem;
+}
+
+ul.decorationL{
+	list-style-type: disc;
+	padding-left: 1.5rem;
+	list-style-position: outside;
+	margin: 0.5em 0;
+}
+q.decorationQ{
+	background-color: rgb(var(--main-text-rgb),0.15);
+	padding: 1em 2em;
+	font-size: 0.9rem;
+	margin: 0.5em 0;
+	position: relative;
+}
+q.decorationQ:before{
+	content: "\f10d";
+	font-family: 'Line Awesome Free';
+	font-weight: 900;
+	color: rgb(var(--main-text-rgb), 0.6);
+	position: absolute;
+	left: 6px;
+	top: 0;
+}
+q.decorationQ:after{
+	content: "\f10e";
+	font-family: 'Line Awesome Free';
+	font-weight: 900;
+	color: rgb(var(--main-text-rgb), 0.6);
+	position: absolute;
+	right: 6px;
+	bottom: 0;
+}
+figure{
+	background-color: var(--sub-bg-color);
+	display: inline-block;
+	margin: 5px 0;
+	padding: 5px 10px;
+	vertical-align: top;
+}
+figcaption{
+	font-size: 0.85rem;
+	line-height: 1.5;
+}
+small figure,
+figure.nsfw{
+	width: var(--miniimg-size);
+}
+.right_block{
+	text-align: right;
+}
+iframe.embeddedmovie{
+	max-width: 100%;
+}
+
+span.passkeybox{
+	display: block;
+	margin-bottom: 0.3rem;
+}
+span.passkeyguide{
+	display: block;
+}
+article details{
+	summary{
+		background-color: color-mix(in srgb, var(--main-text-color) 15%, transparent);
+		border-radius: 5px;
+		cursor: pointer;
+		font-size: 0.9rem;
+		font-weight: bold;
+		padding: 0.1em 0.6em 0.2em;
+	}
+	.foldedarea{
+		border-bottom: 5px solid color-mix(in srgb, var(--main-text-color) 15%, transparent);
+		border-radius: 5px;
+		padding: 1em 0;
+	}
+	details{
+		margin: 1em;
+	}
+}
+
+
+
+/* input -------------------------------------------- */
+select,
+input.queryinput,
+input.passkeyinput{
+	border: 1px solid var(--main-text-color);
+	background-color: var(--sub-bg-color);
+	color: var(--main-text-color);
+	vertical-align: bottom;
+	width: calc(100% - 3rem);
+	height: 2rem;
+}
+input[type="submit"],
+input.passkeysubmit,
+.postarea input[type="button"],
+.postarea input[type="submit"],
+.postarea input[type="text"]{
+	border: none;
+	background-color: var(--main-text-color);
+	color: var(--sub-bg-color);
+	cursor: pointer;
+	font-size: 0.9rem;
+	font-weight: bold;
+	height: 2rem;
+	letter-spacing: 2px;
+	padding: 0 0.5rem 0 0.6rem;
+	vertical-align: bottom;
+}
+main input.passkeyinput{
+	width: calc(100% - 7rem);
+	max-width: 300px;
+}
+main .comment input.passkeysubmit{
+	letter-spacing: 1px;
+	padding: 0 0 2px;
+	text-align: center;
+	width: 7rem;
+}
+
+
+
+/* img -------------------------------------------- */
+img.nsfw{
+	filter: blur(5px);
+	opacity: 0.1;
+}
+a.imagelink{
+	display: inline-block;
+	line-height: 1;
+	vertical-align: bottom;
+	margin: 5px 0;
+}
+.comment img{
+	max-height: var(--largeimg-size);
+	width: auto;
+}
+.comment small img.embeddedimage,
+.comment a.nsfw img.nsfw{
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	width: var(--miniimg-size);
+}
+a.imagelink.nsfw{
+	background-color: rgb(var(--main-text-rgb),0.3);
+	overflow: hidden;
+	position: relative;
+	text-decoration: none;
+}
+a.imagelink.nsfw:before{
+	content: '画像を見る';
+	position: absolute;
+	top: calc(50% - 0.5em);
+	left: calc(50% - 2.5em);
+	font-size: 0.85rem;
+}
+img.prof{
+	width: 4rem;
+	height:4rem;
+	object-fit: cover;
+	object-position: 50% 50%;
+	border-radius: 50%;
+	vertical-align: middle;
+	margin-right: 1rem;
+}
+img.emoji{
+	width: 1rem;
+	height: 1rem;
+	vertical-align: middle;
+	margin: 0 3px 3px;
+}
+
+
+/* cardlink -------------------------------------------- */
+.cardlink {
+	display: inline-block;
+	font-size: 0.9rem;
+	font-weight: normal;
+	margin: 0.5em 0;
+	text-decoration: none;
+	vertical-align: middle;
+	width: 100%;
+}
+.cardlink::before{
+	display: none;
+}
+.cardlinkbox {
+	background-color: transparent;
+	border: 1px solid color-mix(in srgb, var(--main-text-color) 30%, transparent);
+	border-radius: 5px;
+	display: flex;
+}
+.cardlinkimage {
+	aspect-ratio: 1.91 / 1;
+	background-image: url(imgforskin/noimage.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 5px 0 0 5px;
+	height: auto;
+	width: 100%;
+}
+.cardlinktextbox {
+	display: flex;
+	flex-direction: column;
+	padding: 0.7em 1em 1em;
+}
+.cardlinktitle,
+.cardlinkdescription,
+.cardlinkurl {
+	display: -webkit-box;			/* -webkit-line-clampを使うために必要な記述 */
+	line-clamp: 1;					/* 1行だけ見せる (将来的にはこれだけで実現可能かも) */
+	overflow: hidden;				/* 表示量を制限する場合に必須の記述 */
+	text-overflow: ellipsis;		/* 省略記号(三点リーダー) */
+	-webkit-line-clamp: 1;			/* 1行だけ見せる (今のブラウザにはこちらが必要) */
+	-webkit-box-orient: vertical;	/* -webkit-line-clampを使うために必要な記述 */
+}
+.cardlinktitle {
+	font-weight: bold;
+}
+.cardlinkdescription {
+	line-height: 1.4;
+	color: color-mix(in srgb, var(--main-text-color) 70%, transparent);
+	line-clamp: 2;
+	-webkit-line-clamp: 2;
+}
+.cardlinkurl {
+	border-top: 1px dotted color-mix(in srgb, var(--main-text-color) 30%, transparent);
+	color: var(--text-color-70);
+	font-size: 0.8em;
+	margin-top: 0.5em;
+	padding-top: 0.2em;
+}
+
+.cardsize-S {
+	flex-direction: row;
+	.cardlinkimage {
+		border-radius: 5px 0 0 5px;
+		height: 120px;
+		width: unset;
+	}
+	.cardlinktextbox {
+		border-left: 1px solid color-mix(in srgb, var(--main-text-color) 30%, transparent);
+		flex: 1;
+		justify-content: center;
+		padding: 0em 1em;
+	}
+}
+@media (max-width: 599px) {
+	.cardsize-S{
+		font-size: 0.85rem;
+	}
+	.cardsize-S .cardlinkimage {
+		aspect-ratio: 1 / 1;
+	}
+}
+
+.cardlink:has(.cardsize-L){
+	max-width: 450px;
+}
+.cardsize-L {
+	flex-direction: column;
+
+	.cardlinkimage{
+		border-radius: 5px 5px 0 0;
+	}
+	.cardlinktextbox {
+		border-top: 1px solid color-mix(in srgb, var(--main-text-color) 30%, transparent);
+	}
+}
+
+
+/* aside -------------------------------------------- */
+aside .sec1 { grid-area: 1 / 1 / 2 / 2; }
+aside .sec2 { grid-area: 1 / 2 / 2 / 3; }
+aside .sec3 { grid-area: 2 / 1 / 3 / 3; }
+
+aside section > div,
+aside section > nav,
+aside section > form{
+	margin-bottom: 1rem;
+}
+aside h2{
+	font-size: 0.8rem;
+	font-weight: normal;
+	padding: 0 0 0.4em;
+	text-align: left;
+}
+aside .icon_name{
+	margin-bottom: 0.5rem;
+}
+aside .links{
+	margin-bottom: 1rem;
+}
+aside .links a:before{
+	content: "\f0da";
+	font-family: 'Line Awesome Free';
+	font-weight: 900;
+}
+aside ul.depth2{
+	display: inline-block;
+}
+aside ul.depth2 li{
+	margin-right: 0;
+}
+aside ul.depth2 a{
+	background-color: rgb(var(--main-text-rgb), 0.6);
+	margin-left: 1px;
+}
+aside .searchinputs,
+aside .datelimitbox,
+aside .hashtagpullbox,
+aside .catpullbox{
+	display: flex;
+}
+aside .hashtaglist li{
+	display: inline-block;
+	padding-right: 0.5em;
+	font-weight: bold;
+}
+aside .hashtaglist li:before{
+	content: '#';
+	color: rgb(var(--main-text-rgb), 0.6);
+}
+aside .hashtaglist .num{
+	display: none;
+}
+aside .datelimitboxoptions{
+	display: none;
+}
+aside table.calendar{
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+	line-height: 2;
+	font-size: 0.8rem;
+	margin-top: 1.5rem;
+}
+aside caption{
+	line-height: 1;
+	padding-bottom: 0.8em;
+	text-align: left;
+}
+.calendar thead{
+	background-color: rgb(var(--main-text-rgb), 0.15);
+}
+.calendar tr {
+    border-bottom: 1px solid rgba(var(--main-text-rgb), 0.3);
+}
+.calendar tr:last-child {
+    border-bottom: none;
+}
+.calendar .sun,
+.calendar .sat {
+    background-color: var(--sub-bg-color2);
+}
+.calendar .today {
+    background-color: var(--accent2);
+}
+.calendar a{
+	font-weight: bold;
+	display: block;
+}
+.calendar span.nolink{
+	color: rgb(var(--main-text-rgb),0.5);
+}
+.calbtm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.calbtm div:nth-child(2) {
+    text-align: right;
+}
+aside section div.imagelist{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+	gap: 5px;
+	margin-bottom:0;
+}
+.imagelistitem a{
+	background-color: rgb(var(--main-text-rgb),0.3);
+	display: block;
+	overflow: hidden;
+}
+.imagelistitem img{
+	object-fit: cover;
+	aspect-ratio: 1 / 1;
+}
+.sec3 p{
+	font-size: 0.8rem;
+	padding-top: 0.3em;
+}
+@media (max-width: 599px){
+	aside{
+		display: block;
+		padding: 0 1.6rem;
+	}
+	aside section div.imagelist{
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+
+/* postarea -------------------------------------------- */
+.postarea{
+	background-color: var(--accent2);
+	margin-bottom: 3rem;
+
+	form.postform{
+		padding: 0 5%;
+	}
+	summary{
+		cursor: pointer;
+		padding: 3.5% 5%;
+	}
+	input[type="text"]{
+		font-weight: normal;
+	}
+	textarea.tegalogpost{
+		background-color: var(--sub-bg-color);
+		border: none;
+		border-radius: 0;
+		color: var(--main-text-color);
+		font-family: 'Noto Sans JP','Hiragino Kaku Gothic ProN', Meiryo,  sans-serif;
+		min-height: 10rem;
+		padding: 0.2em 0.6em;
+		resize: vertical;
+		vertical-align: bottom;
+		width: 100%;
+	}
+	.submitcover{
+		display: block;
+		text-align: right;
+	}
+	input.postbutton{
+		background-color: var(--accent);
+		font-size: 1rem;
+		font-weight: bold;
+		letter-spacing: 2px;
+		margin-right: 0;
+		width: 50%;
+	}
+	.line-control{
+		font-size: 0.9rem;
+		padding-bottom: 0.5rem;
+	}
+	.decoBtns{
+		display: block;
+	}
+	input[type="button"]{
+		font-weight: normal;
+		letter-spacing: 1px;
+		margin: 0 5px 5px 0;
+		vertical-align: middle;
+	}
+	input[type="file"]{
+		border: 1px solid var(--main-text-color);
+		vertical-align: middle;
+		margin: 0 5px 5px 0;
+		height: 2rem;
+	}
+	::file-selector-button{
+		background-color: var(--main-text-color);
+		border: none;
+		color: var(--sub-bg-color);
+		cursor: pointer;
+		height: 2rem;
+		margin-right: 0.7em;
+		padding: 0.4em 0.6em;
+		text-box-edge: cap alphabetic;
+		text-box-trim: trim-both;
+		transition: background-color 0.3s ease-in-out;
+	}
+	select{
+		margin-bottom: 5px;
+		width: unset;
+	}
+	label{
+		display: inline-block;
+		padding: 0 1em 5px 0;
+		vertical-align: middle;
+		line-height: 1.8;
+	}
+	label input[type="checkbox"]{
+		margin-right: 5px;
+	}
+	.funcUIs label{
+		padding: 0 5px 5px 0;
+	}
+	.funcUIs .catChecks,
+	.funcUIs > input:first-child{
+		margin-right: 1em;
+	}
+	p.right_block{
+		padding: 0 5% 3.5%;
+	}
+}
+
+
+/* footer -------------------------------------------- */
+footer{
+	border-top: 1px solid rgba(var(--main-text-rgb),0.3);
+	font-size: 0.8rem;
+	max-width: var(--main-width);
+	margin: 0 auto 3rem;
+	padding: 1em 0 0;
+	text-align: center;
+}
